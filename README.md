@@ -310,7 +310,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Harshdeep Singh**
 - GitHub: [@yourxharsh19](https://github.com/yourxharsh19)
 - Portfolio: [Your Portfolio URL]
-- LinkedIn: [Your LinkedIn URL]
+- LinkedIn: [Harshdeep Singh](https://www.linkedin.com/in/harshdeep-singh-dev/)
 
 ---
 
