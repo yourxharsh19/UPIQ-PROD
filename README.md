@@ -4,6 +4,8 @@
 
 UPIQ is a full-stack financial dashboard that helps users track, categorize, and visualize their UPI transactions. Built with modern technologies, it features an elegant UI with dark mode support, automated PDF statement parsing, and a production-optimized backend architecture.
 
+**🚀 Deployed and Live: [upiq.vercel.app](https://upiq.vercel.app/)**
+
 [![Java](https://img.shields.io/badge/Java-21-orange?logo=openjdk)](https://openjdk.org/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.1-brightgreen?logo=springboot)](https://spring.io/projects/spring-boot)
 [![React](https://img.shields.io/badge/React-18-blue?logo=react)](https://reactjs.org/)
@@ -67,7 +69,7 @@ The application uses a **single Spring Boot backend** optimized for cost-effecti
 **Benefits:**
 - ✅ Runs on 512MB-1GB RAM (vs 4GB+ for microservices)
 - ✅ Single Docker container deployment
-- ✅ Perfect for free-tier hosting (Render, Railway, Fly.io)
+- ✅ Perfect for free-tier hosting (Render, Vercel, Neon)
 - ✅ Simplified development and debugging
 
 **Original Microservices Architecture:**
@@ -183,11 +185,18 @@ UPIQ/
 | Spring Boot 3.3.1 | Application framework |
 | Spring Security | Authentication & authorization |
 | Spring Data JPA | Database ORM |
-| PostgreSQL | Relational database |
+| PostgreSQL (Neon) | Relational database (Serverless) |
 | JWT (jjwt 0.12.3) | Token-based auth |
 | Apache PDFBox 3.0.3 | PDF parsing |
 | Apache Commons CSV | CSV parsing |
 | Lombok | Boilerplate reduction |
+
+### 🌐 Infrastructure & Deployment
+| Service | Role |
+|---------|------|
+| **Vercel** | Frontend Hosting |
+| **Render** | Backend Hosting |
+| **Neon** | Database (PostgreSQL) |
 
 ---
 
@@ -216,35 +225,6 @@ UPIQ/
    - **Build Command:** `cd upiq-frontend && npm install && npm run build`
    - **Publish Directory:** `upiq-frontend/dist`
    - **Environment Variable:** `VITE_API_URL=<your-backend-url>`
-
-### Deploy to Railway
-
-```bash
-# Install Railway CLI
-npm install -g @railway/cli
-
-# Login and deploy
-railway login
-railway init
-railway up
-```
-
-### Deploy to Fly.io
-
-```bash
-# Install Fly CLI
-curl -L https://fly.io/install.sh | sh
-
-# Deploy backend
-cd upiq-backend
-fly launch
-fly deploy
-
-# Deploy frontend
-cd ../upiq-frontend
-fly launch
-fly deploy
-```
 
 ---
 
@@ -289,7 +269,25 @@ fly deploy
 
 ## 📸 Screenshots
 
-> **Note:** Add screenshots of your application here for portfolio presentation.
+### 📊 Dashboard & Analytics
+<p align="center">
+  <img src="Screenshots/Dashboard-Dark.png" width="45%" />
+  <img src="Screenshots/Dashboard-Light.png" width="45%" />
+</p>
+<p align="center"><sub>Seamless transition between Dark and Light modes with real-time analytics</sub></p>
+
+### 💰 Budget & Tracking
+![Budget Tracking](Screenshots/Budget&Tracking.png)
+<sub>Smart budgeting visualization with real-time progress tracking</sub>
+
+### 📂 Categories Management
+![Categories](Screenshots/Categories.png)
+
+### 📑 Transaction History
+![Transactions](Screenshots/Transactions.png)
+
+### 📄 PDF Upload & Parsing
+![PDF Upload](Screenshots/pdfupload.png)
 
 ---
 
