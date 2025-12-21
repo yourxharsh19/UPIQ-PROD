@@ -34,11 +34,8 @@ A modern, high-performance financial dashboard built with **React**, **Vite**, a
    npm install
    ```
 
-   The application defaults to connecting to the backend at `http://localhost:8080/api`.
-   To override this, create a `.env` file:
-   ```env
-   VITE_API_BASE_URL=http://your-backend-url:8080/api
-   ```
+2. Configure environment (Optional):
+   The application defaults to connecting to the API Gateway at `http://localhost:8080`.
 
 3. Start development server:
    ```bash
