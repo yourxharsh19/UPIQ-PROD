@@ -7,13 +7,13 @@ const CategoryBreakdown = ({ transactions }) => {
 
   if (breakdown.length === 0) {
     return (
-      <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm h-96 flex flex-col items-center justify-center">
+      <div className="bg-[var(--bg-card)] p-8 rounded-2xl border border-[var(--border-base)] shadow-premium h-96 flex flex-col items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <PieChart size={32} className="text-gray-400" />
+          <div className="w-16 h-16 bg-[var(--bg-surface)] rounded-full flex items-center justify-center mx-auto mb-4 border border-[var(--border-base)]">
+            <PieChart size={32} className="text-[var(--text-muted)]" />
           </div>
-          <p className="text-gray-500 font-medium">No expense data available</p>
-          <p className="text-sm text-gray-400 mt-1">Upload a PDF to see category breakdown</p>
+          <p className="text-[var(--text-main)] font-bold">No expense data available</p>
+          <p className="text-sm text-[var(--text-muted)] mt-1">Upload a PDF to see category breakdown</p>
         </div>
       </div>
     );

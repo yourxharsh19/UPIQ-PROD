@@ -20,13 +20,13 @@ const IncomeExpenseComparison = ({ transactions }) => {
 
   if (income === 0 && expenses === 0) {
     return (
-      <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm h-80 flex flex-col items-center justify-center">
+      <div className="bg-[var(--bg-card)] p-8 rounded-2xl border border-[var(--border-base)] shadow-premium h-80 flex flex-col items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <BarChart size={32} className="text-gray-400" />
+          <div className="w-16 h-16 bg-[var(--bg-surface)] rounded-full flex items-center justify-center mx-auto mb-4 border border-[var(--border-base)]">
+            <BarChart size={32} className="text-[var(--text-muted)]" />
           </div>
-          <p className="text-gray-500 font-medium">No financial data available</p>
-          <p className="text-sm text-gray-400 mt-1">Start tracking your income and expenses</p>
+          <p className="text-[var(--text-main)] font-bold">No financial data available</p>
+          <p className="text-sm text-[var(--text-muted)] mt-1">Start tracking your income and expenses</p>
         </div>
       </div>
     );
@@ -36,9 +36,9 @@ const IncomeExpenseComparison = ({ transactions }) => {
     if (active && payload && payload.length) {
       const data = payload[0];
       return (
-        <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-200">
-          <p className="font-semibold text-gray-900">{data.payload.name}</p>
-          <p className="text-sm text-gray-600">
+        <div className="bg-[var(--bg-card)] p-3 rounded-xl shadow-premium-hover border border-[var(--border-base)] backdrop-blur-md bg-opacity-90">
+          <p className="font-bold text-[var(--text-main)]">{data.payload.name}</p>
+          <p className="text-sm text-[var(--text-muted)] mt-1">
             ₹{data.value.toLocaleString('en-IN')}
           </p>
         </div>
@@ -48,49 +48,49 @@ const IncomeExpenseComparison = ({ transactions }) => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
-      <div className="mb-6">
-        <h3 className="text-lg font-bold text-gray-900 mb-1">Income vs Expenses</h3>
-        <p className="text-sm text-gray-500">Compare your total income and expenses</p>
+    <div className="bg-[var(--bg-card)] p-6 lg:p-8 rounded-2xl border border-[var(--border-base)] shadow-premium hover:shadow-premium-hover transition-all duration-300">
+      <div className="mb-8">
+        <h3 className="text-lg font-bold text-[var(--text-main)] mb-1 tracking-tight">Income vs Expenses</h3>
+        <p className="text-sm text-[var(--text-muted)]">Compare your total income and expenses</p>
       </div>
-      
-      <div className="h-64">
+
+      <div className="h-64 sm:h-72">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
-            <XAxis 
-              dataKey="name" 
-              axisLine={false} 
+          <BarChart data={data} margin={{ top: 20, right: 10, left: 10, bottom: 5 }}>
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--border-base)" opacity={0.5} />
+            <XAxis
+              dataKey="name"
+              axisLine={false}
               tickLine={false}
-              tick={{ fill: '#6b7280', fontSize: 12 }}
+              tick={{ fill: 'var(--text-muted)', fontSize: 12, fontWeight: 500 }}
             />
-            <YAxis 
-              axisLine={false} 
+            <YAxis
+              axisLine={false}
               tickLine={false}
-              tick={{ fill: '#6b7280', fontSize: 12 }}
+              tick={{ fill: 'var(--text-muted)', fontSize: 10, fontWeight: 500 }}
               tickFormatter={(value) => `₹${(value / 1000).toFixed(0)}k`}
             />
-            <Tooltip content={<CustomTooltip />} />
-            <Bar dataKey="amount" radius={[8, 8, 0, 0]}>
+            <Tooltip content={<CustomTooltip />} cursor={{ fill: 'var(--bg-surface)', opacity: 0.4 }} />
+            <Bar dataKey="amount" radius={[8, 8, 8, 8]} barSize={40}>
               {data.map((entry, index) => (
-                <Cell 
-                  key={`cell-${index}`} 
-                  fill={entry.type === 'income' ? '#10b981' : '#ef4444'} 
+                <Cell
+                  key={`cell-${index}`}
+                  fill={entry.type === 'income' ? '#10b981' : '#ef4444'}
                 />
               ))}
             </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>
-      
-      <div className="mt-6 grid grid-cols-2 gap-4">
-        <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-          <p className="text-sm text-green-700 font-medium mb-1">Total Income</p>
-          <p className="text-2xl font-bold text-green-900">₹{income.toLocaleString('en-IN')}</p>
+
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="bg-emerald-500/5 p-4 rounded-xl border border-emerald-500/10">
+          <p className="text-xs text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-wider mb-1">Total Income</p>
+          <p className="text-2xl font-black text-emerald-600 dark:text-emerald-400">₹{income.toLocaleString('en-IN')}</p>
         </div>
-        <div className="bg-red-50 p-4 rounded-lg border border-red-200">
-          <p className="text-sm text-red-700 font-medium mb-1">Total Expenses</p>
-          <p className="text-2xl font-bold text-red-900">₹{expenses.toLocaleString('en-IN')}</p>
+        <div className="bg-rose-500/5 p-4 rounded-xl border border-rose-500/10">
+          <p className="text-xs text-rose-600 dark:text-rose-400 font-bold uppercase tracking-wider mb-1">Total Expenses</p>
+          <p className="text-2xl font-black text-rose-600 dark:text-rose-400">₹{expenses.toLocaleString('en-IN')}</p>
         </div>
       </div>
     </div>

@@ -36,12 +36,12 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[var(--bg-main)] p-4 relative overflow-hidden">
-      {/* Brand Header in Corner */}
-      <div className="absolute top-8 left-8 flex items-center gap-3 animate-fade-in">
-        <img src={logo} alt="UPIQ" className="w-10 h-10 rounded-xl object-cover" />
+      {/* Brand Header */}
+      <div className="absolute top-6 left-6 sm:top-8 sm:left-8 flex items-center gap-3 animate-fade-in">
+        <img src={logo} alt="UPIQ" className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl object-cover" />
         <div className="flex flex-col">
-          <span className="text-lg font-bold text-[var(--text-main)] leading-none">UPIQ</span>
-          <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--text-muted)] font-bold">Finance, Without the Friction</span>
+          <span className="text-base sm:text-lg font-bold text-[var(--text-main)] leading-none">UPIQ</span>
+          <span className="hidden sm:inline text-[10px] uppercase tracking-[0.2em] text-[var(--text-muted)] font-bold">Finance, Without the Friction</span>
         </div>
       </div>
 

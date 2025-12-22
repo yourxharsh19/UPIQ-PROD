@@ -101,17 +101,17 @@ const Transactions = () => {
     }, [dateFilteredTransactions, filters.search, filters.type]);
 
     return (
-        <div className="space-y-8">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+        <div className="space-y-6 sm:space-y-8">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-6">
                 <div>
-                    <h1 className="text-2xl font-bold text-[var(--text-main)] tracking-tight">Transactions</h1>
-                    <p className="text-[var(--text-muted)] mt-1">Manage and categorize your expenses.</p>
+                    <h1 className="text-xl sm:text-2xl font-bold text-[var(--text-main)] tracking-tight">Transactions</h1>
+                    <p className="text-sm text-[var(--text-muted)] mt-1">Manage and categorize your expenses.</p>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
                     <DateRangeFilter />
                     <button
                         onClick={handleDeleteAll}
-                        className="px-4 py-2 text-rose-500 bg-rose-500/10 border border-rose-500/20 rounded-xl hover:bg-rose-500/20 transition-all font-bold text-xs uppercase tracking-wider"
+                        className="px-3 sm:px-4 py-2 text-rose-500 bg-rose-500/10 border border-rose-500/20 rounded-xl hover:bg-rose-500/20 transition-all font-bold text-[10px] sm:text-xs uppercase tracking-wider"
                     >
                         Delete All
                     </button>
@@ -119,22 +119,22 @@ const Transactions = () => {
             </div>
 
             {/* Filters */}
-            <div className="bg-[var(--bg-card)] p-4 rounded-2xl border border-[var(--border-base)] shadow-premium flex flex-col md:flex-row gap-4">
+            <div className="bg-[var(--bg-card)] p-3 sm:p-4 rounded-2xl border border-[var(--border-base)] shadow-premium flex flex-col md:flex-row gap-3 sm:gap-4">
                 <div className="relative flex-1">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" size={18} />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" size={16} />
                     <input
                         type="text"
-                        placeholder="Search description or category..."
+                        placeholder="Search description..."
                         value={filters.search}
                         onChange={(e) => setFilters({ ...filters, search: e.target.value })}
-                        className="w-full pl-10 pr-4 py-2.5 bg-[var(--bg-card)] border border-[var(--border-base)] rounded-xl focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 outline-none text-sm transition-all"
+                        className="w-full pl-9 pr-4 py-2 bg-[var(--bg-card)] border border-[var(--border-base)] rounded-xl focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 outline-none text-sm transition-all"
                     />
                 </div>
                 <div className="w-full md:w-48">
                     <select
                         value={filters.type}
                         onChange={(e) => setFilters({ ...filters, type: e.target.value })}
-                        className="w-full px-3 py-2.5 bg-[var(--bg-card)] border border-[var(--border-base)] rounded-xl focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 outline-none text-sm transition-all appearance-none cursor-pointer"
+                        className="w-full px-3 py-2 bg-[var(--bg-card)] border border-[var(--border-base)] rounded-xl focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 outline-none text-sm transition-all appearance-none cursor-pointer"
                     >
                         <option value="ALL">All Types</option>
                         <option value="INCOME">Income</option>
